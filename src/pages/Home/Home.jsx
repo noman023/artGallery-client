@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import CraftItems from "../../components/CraftItems/CraftItems";
 export default function Home() {
   return (
     <>
@@ -6,7 +7,7 @@ export default function Home() {
         <title>Art Gallery | Home</title>
       </Helmet>
 
-      <p>home</p>
+      <CraftItems />
     </>
   );
 }
