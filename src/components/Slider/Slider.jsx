@@ -50,14 +50,6 @@ export default function Slider() {
             </p>
           </div>
         </div>
-        {/* 
-        <div id="item3" className="carousel-item w-full">
-          <img src={mountainArt} className="w-full rounded-3xl" />
-          <div>
-            <h1>Creative Essentials</h1>
-            <p>Tools to inspire your inner artist.</p>
-          </div>
-        </div> */}
       </div>
 
       <div className="flex justify-center w-full py-2 gap-2 mb-10">
