@@ -1,0 +1,69 @@
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+
+export default function Login() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(email, password);
+  };
+
+  return (
+    <>
+      <div className="text-center">
+        <div className="card shrink-0 w-full max-w-md mx-auto shadow-2xl bg-base-100 mt-20 ">
+          <form onSubmit={handleSubmit} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                name="email"
+                type="email"
+                placeholder="email"
+                className="input input-bordered"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                name="password"
+                type="password"
+                placeholder="password"
+                className="input input-bordered"
+                required
+              />
+            </div>
+
+            <p className="mt-2">
+              Don't have an account?{" "}
+              <Link to="/register" className="text-purple-500 underline">
+                Resigter Here
+              </Link>
+            </p>
+
+            <div className="form-control mt-6">
+              <Button>Login</Button>
+            </div>
+          </form>
+        </div>
+
+        <div className="flex justify-center gap-4 mt-10 mb-20">
+          <button className="btn bg-red-500 hover:bg-red-600 text-white">
+            Login with Google
+          </button>
+          <div className="divider divider-horizontal">Or</div>
+
+          <button className="btn btn-neutral">Login with Github</button>
+        </div>
+      </div>
+    </>
+  );
+}
