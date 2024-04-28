@@ -60,10 +60,9 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: (
           <PrivateRoute>
-            {/* <p>dtails</p> */}
             <ViewDetails />
           </PrivateRoute>
         ),

@@ -40,7 +40,7 @@ export default function AllItems() {
               <td>{data.price}</td>
               <td>{data.stockStatus}</td>
               <td>
-                <Link to={"/details"}>
+                <Link to={"/details/1"}>
                   <Button>View Details</Button>
                 </Link>
               </td>
