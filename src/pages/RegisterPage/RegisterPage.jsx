@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Register from "../../components/Register/Register";
 
 export default function RegisterPage() {
   return (
@@ -7,7 +8,7 @@ export default function RegisterPage() {
         <title>Art Gallery | Register</title>
       </Helmet>
 
-      <p>register page</p>
+      <Register />
     </>
   );
 }
