@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import Button from "../Button/Button";
+import SectionHead from "../sectionHead/SectionHead";
 
 export default function Login() {
   const handleSubmit = (e) => {
@@ -14,6 +16,8 @@ export default function Login() {
   return (
     <>
       <div className="text-center">
+        <SectionHead>Login To Your Account</SectionHead>
+
         <div className="card shrink-0 w-full max-w-md mx-auto shadow-2xl bg-base-100 mt-20 ">
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">

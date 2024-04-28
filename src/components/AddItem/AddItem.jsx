@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet";
+
 import Button from "../Button/Button";
+import SectionHead from "../sectionHead/SectionHead";
 
 export default function AddItem() {
   const handleSubmit = (e) => {
@@ -40,11 +42,7 @@ export default function AddItem() {
         <title>Art Gallery | Add an Item</title>
       </Helmet>
 
-      <div className="text-center mb-10">
-        <h1 className="text-3xl lg:text-4xl font-bold  underline">
-          Add an item
-        </h1>
-      </div>
+      <SectionHead>Add an Item</SectionHead>
 
       <div className="card shrink-0 w-full shadow-2xl bg-base-100 mb-20">
         <form onSubmit={handleSubmit} className="card-body ">

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import Button from "../Button/Button";
+import SectionHead from "../sectionHead/SectionHead";
 
 export default function Register() {
   const [showPassowrd, setShowPassword] = useState(false);
@@ -40,6 +41,8 @@ export default function Register() {
   };
   return (
     <div>
+      <SectionHead>Create Your Account</SectionHead>
+
       <div className="card shrink-0 w-full max-w-md mx-auto shadow-2xl bg-base-100 my-20">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
