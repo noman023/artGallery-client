@@ -7,8 +7,10 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import AddItem from "../components/AddItem/AddItem";
-import MyItems from "../components/myItems/MyItems";
+import MyItems from "../components/MyItems/MyItems";
 import AllItemsPage from "../pages/AllItemsPage/AllItemsPage";
+import UpdateItem from "../components/UpdateItem/UpdateItem";
+import ViewDetails from "../components/ViewDetails/ViewDetails";
 
 const routes = createBrowserRouter([
   {
@@ -46,6 +48,23 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyItems />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateItem",
+        element: (
+          <PrivateRoute>
+            <UpdateItem />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/details",
+        element: (
+          <PrivateRoute>
+            {/* <p>dtails</p> */}
+            <ViewDetails />
           </PrivateRoute>
         ),
       },

@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet";
-
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
 
-export default function AddItem() {
+export default function UpdateItem() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,13 +35,14 @@ export default function AddItem() {
       email
     );
   };
+
   return (
     <>
       <Helmet>
-        <title>Art Gallery | Add an Item</title>
+        <title>Art Gallery | Update item</title>
       </Helmet>
 
-      <SectionHead>Add Craft Item</SectionHead>
+      <SectionHead>Update Your Item</SectionHead>
 
       <div className="card shrink-0 w-full shadow-2xl bg-base-100 mb-20">
         <form onSubmit={handleSubmit} className="card-body ">
@@ -195,7 +195,7 @@ export default function AddItem() {
           </div>
 
           <div className="form-control w-1/2 mx-auto my-6">
-            <Button>Add</Button>
+            <Button>Update</Button>
           </div>
         </form>
       </div>

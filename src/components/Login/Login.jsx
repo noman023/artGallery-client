@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Button from "../Button/Button";
-import SectionHead from "../sectionHead/SectionHead";
+import SectionHead from "../SectionHead/SectionHead";
 
 export default function Login() {
   const handleSubmit = (e) => {

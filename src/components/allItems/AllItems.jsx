@@ -40,10 +40,8 @@ export default function AllItems() {
               <td>{data.price}</td>
               <td>{data.stockStatus}</td>
               <td>
-                <Link to={"/"}>
-                  <Button styles={"bg-blue-500 hover:bg-blue-600"}>
-                    View Details
-                  </Button>
+                <Link to={"/details"}>
+                  <Button>View Details</Button>
                 </Link>
               </td>
             </tr>

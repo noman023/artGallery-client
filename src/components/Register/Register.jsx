@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import Button from "../Button/Button";
-import SectionHead from "../sectionHead/SectionHead";
+import SectionHead from "../SectionHead/SectionHead";
 
 export default function Register() {
   const [showPassowrd, setShowPassword] = useState(false);

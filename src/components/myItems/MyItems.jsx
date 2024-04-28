@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet";
 
 import mountain from "../../assets/mountain_view_canvas.jpg";
 import Button from "../Button/Button";
-import SectionHead from "../sectionHead/SectionHead";
+import SectionHead from "../SectionHead/SectionHead";
+import { Link } from "react-router-dom";
 
 export default function MyItems() {
   const data = {
@@ -52,7 +53,10 @@ export default function MyItems() {
             </div>
 
             <div className="card-actions justify-center mt-2">
-              <Button styles={"bg-blue-500 hover:bg-blue-600"}>Update</Button>
+              <Link to={"/updateItem"}>
+                <Button>Update</Button>
+              </Link>
+
               <Button styles={"bg-red-500 hover:bg-red-600"}>Detele</Button>
             </div>
           </div>
