@@ -1,14 +1,12 @@
-// import { Helmet } from "react-helmet";
-// import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
+import { Helmet } from "react-helmet";
 
 export default function UpdatePage() {
   return (
     <div>
-      {/* <Helmet>
-        <title>TradeSpaceHub | Update Profile</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Art Gallery | Update items</title>
+      </Helmet>
 
-      {/* <UpdateProfile /> */}
       <p>update page</p>
     </div>
   );

@@ -1,11 +1,13 @@
-// import Register from "../../components/Register/Register";
+import { Helmet } from "react-helmet";
 
 export default function RegisterPage() {
   return (
-    <div>
-      {/* <Register />
-       */}
+    <>
+      <Helmet>
+        <title>Art Gallery | Register</title>
+      </Helmet>
+
       <p>register page</p>
-    </div>
+    </>
   );
 }

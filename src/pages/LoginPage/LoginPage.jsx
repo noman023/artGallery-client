@@ -1,9 +1,12 @@
-// import Login from "../../components/Login/Login";
+import { Helmet } from "react-helmet";
 
 export default function LoginPage() {
   return (
     <>
-      {/* <Login /> */}
+      <Helmet>
+        <title>Art Gallery | Login</title>
+      </Helmet>
+
       <p>login page</p>
     </>
   );
