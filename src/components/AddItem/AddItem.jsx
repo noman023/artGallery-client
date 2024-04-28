@@ -42,7 +42,7 @@ export default function AddItem() {
         <title>Art Gallery | Add an Item</title>
       </Helmet>
 
-      <SectionHead>Add an Item</SectionHead>
+      <SectionHead>Add Craft Item</SectionHead>
 
       <div className="card shrink-0 w-full shadow-2xl bg-base-100 mb-20">
         <form onSubmit={handleSubmit} className="card-body ">

@@ -7,6 +7,8 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import AddItem from "../components/AddItem/AddItem";
+import MyItems from "../components/myItems/MyItems";
+import AllItemsPage from "../pages/AllItemsPage/AllItemsPage";
 
 const routes = createBrowserRouter([
   {
@@ -28,10 +30,22 @@ const routes = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
+        path: "/allItems",
+        element: <AllItemsPage />,
+      },
+      {
         path: "/addItem",
         element: (
           <PrivateRoute>
             <AddItem />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myItems",
+        element: (
+          <PrivateRoute>
+            <MyItems />
           </PrivateRoute>
         ),
       },
