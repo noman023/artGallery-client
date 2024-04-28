@@ -12,6 +12,10 @@ export default function Header() {
       <li>
         <NavLink to={"/register"}>Register</NavLink>
       </li>
+
+      <li>
+        <NavLink to={"/addItem"}>Add an Item</NavLink>
+      </li>
     </>
   );
 

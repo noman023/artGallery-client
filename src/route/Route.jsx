@@ -5,6 +5,8 @@ import NotFound from "../pages/NotFound/NotFound";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
+import AddItem from "../components/AddItem/AddItem";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+      {
+        path: "/addItem",
+        element: (
+          <PrivateRoute>
+            <AddItem />
+          </PrivateRoute>
+        ),
       },
     ],
   },
