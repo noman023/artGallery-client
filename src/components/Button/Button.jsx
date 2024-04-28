@@ -1,7 +1,5 @@
-export default function Button({ children }) {
-  return (
-    <button className="btn bg-amber-500 hover:bg-amber-600 text-white">
-      {children}
-    </button>
-  );
+export default function Button({ styles, children }) {
+  const color = styles ? styles : "bg-amber-500 hover:bg-amber-600";
+
+  return <button className={`btn ${color} text-white`}>{children}</button>;
 }
