@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import CraftItems from "../../components/CraftItems/CraftItems";
 import Slider from "../../components/Slider/Slider";
+import Reviews from "../../components/Reviews/Reviews";
 export default function Home() {
   return (
     <>
@@ -9,7 +10,9 @@ export default function Home() {
       </Helmet>
 
       <Slider />
+
       <CraftItems />
+      <Reviews />
     </>
   );
 }
