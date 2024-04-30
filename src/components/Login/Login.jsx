@@ -7,7 +7,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import Swal from "sweetalert2";
 
 export default function Login() {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // navigate after login
@@ -37,6 +37,42 @@ export default function Login() {
           title: err.message,
         });
       });
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+
+        navigateTo();
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        })
+      );
+  };
+
+  const handleGithubLogin = () => {
+    loginWithGithub()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+
+        navigateTo();
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        })
+      );
   };
 
   return (
@@ -86,12 +122,17 @@ export default function Login() {
         </div>
 
         <div className="flex justify-center gap-4 mt-10 mb-20">
-          <button className="btn bg-red-500 hover:bg-red-600 text-white">
+          <Button
+            styles={"bg-red-500 hover:bg-red-600"}
+            hanldeClick={handleGoogleLogin}
+          >
             Login with Google
-          </button>
+          </Button>
           <div className="divider divider-horizontal">Or</div>
 
-          <button className="btn btn-neutral">Login with Github</button>
+          <Button styles={"btn btn-neutral"} hanldeClick={handleGithubLogin}>
+            Login with Github
+          </Button>
         </div>
       </div>
     </>
