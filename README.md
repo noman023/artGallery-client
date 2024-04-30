@@ -1,8 +1,9 @@
-# React + Vite
+# ArtGallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A website for selling art & crafts items. React js with tailwind used in the frontend and firebase used for login and logout functionalities and mongodb used as database. Live link [here]()
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User can create account and login with email and password.
+- User can login with google and github account.
+- Can add their art & crafts item.
+- Can see the list their added items.
+- Can update or delete their own items.
