@@ -25,20 +25,21 @@ export default function Register() {
     const email = form.get("email");
     const password = form.get("password");
 
-    // if (
-    //   /[A-Z]/.test(password) &&
-    //   /[a-z]/.test(password) &&
-    //   password.length === 6
-    // ) {
-    // } else {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Wrong Password Making ",
-    //     text: "Your password should include at least 1 uppercase and lowercase letter. And should be at least 6 character long.",
-    //   });
+    //check if password has one uppercase and lowercase letter. and 6 letter long
+    if (
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      password.length === 6
+    ) {
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Wrong Password Making ",
+        text: "Your password should include at least 1 uppercase and lowercase letter. And should be at least 6 character long.",
+      });
 
-    //   return;
-    // }
+      return;
+    }
 
     createUser(email, password)
       .then(() => {
@@ -67,6 +68,7 @@ export default function Register() {
   const hanldeShowPassword = () => {
     setShowPassword(!showPassowrd);
   };
+
   return (
     <div>
       <SectionHead>Create Your Account</SectionHead>

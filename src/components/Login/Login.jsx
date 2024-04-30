@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 export default function Login() {
   const { logIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // navigate after login
   const navigateTo = () => {
