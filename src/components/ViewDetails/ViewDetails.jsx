@@ -8,7 +8,7 @@ export default function ViewDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/items/${id}`)
+    fetch(`https://art-crafts-server-xi.vercel.app//items/${id}`)
       .then((res) => res.json())
 
       .then((data) => setData(data));

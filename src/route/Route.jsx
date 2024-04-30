@@ -20,7 +20,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/items"),
+        loader: () => fetch("https://art-crafts-server-xi.vercel.app/items"),
         element: <Home />,
       },
 
@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/allItems",
-        loader: () => fetch("http://localhost:5000/items"),
+        loader: () => fetch("https://art-crafts-server-xi.vercel.app/items"),
         element: <AllItemsPage />,
       },
       {
@@ -47,7 +47,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/myItems",
-        loader: () => fetch("http://localhost:5000/items"),
+        loader: () => fetch("https://art-crafts-server-xi.vercel.app/items"),
         element: (
           <PrivateRoute>
             <MyItems />

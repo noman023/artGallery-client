@@ -40,7 +40,7 @@ export default function AddItem() {
       email,
     };
 
-    fetch("http://localhost:5000/items", {
+    fetch("https://art-crafts-server-xi.vercel.app//items", {
       method: "POST",
       headers: {
         "content-type": "application/json",

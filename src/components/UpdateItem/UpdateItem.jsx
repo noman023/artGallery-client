@@ -25,7 +25,7 @@ export default function UpdateItem() {
   } = data;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/items/${id}`)
+    fetch(`https://art-crafts-server-xi.vercel.app/items/${id}`)
       .then((res) => res.json())
 
       .then((data) => setData(data));
@@ -63,7 +63,7 @@ export default function UpdateItem() {
       email,
     };
 
-    fetch(`http://localhost:5000/items/${id}`, {
+    fetch(`https://art-crafts-server-xi.vercel.app/items/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
