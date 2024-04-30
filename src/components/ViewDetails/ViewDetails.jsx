@@ -1,20 +1,19 @@
 import { Helmet } from "react-helmet";
 
-import mountain from "../../assets/mountain_view_canvas.jpg";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function ViewDetails() {
-  const data = {
-    image: "https://example.com/pencil_sketch_portrait.jpg",
-    item_name: "Pencil Sketch Portrait",
-    subcategory_Name: "Portrait Drawing",
-    short_description:
-      "Get a detailed pencil sketch of yourself or your loved ones.",
-    price: 35.5,
-    rating: 4.8,
-    customization: "Yes",
-    processing_time: "3-5 days",
-    stockStatus: "In stock",
-  };
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/items/${id}`)
+      .then((res) => res.json())
+
+      .then((data) => setData(data));
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -23,19 +22,19 @@ export default function ViewDetails() {
 
       <div className="flex flex-col lg:flex-row bg-base-200 my-10 p-5 gap-5 rounded-lg">
         <div className="lg:w-[40%] border">
-          <img src={mountain} className="rounded-lg shadow-2xl" />
+          <img src={data.itemImg} className="rounded-lg shadow-2xl" />
         </div>
 
         <div className="lg:w-[60%]">
           <div className="flex gap-4">
             <div className="badge badge-primary badge-outline font-bold mb-3">
-              {data.subcategory_Name}
+              {data.category}
             </div>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold">{data.item_name}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold">{data.itemName}</h1>
 
-          <p className=" pt-5 pb-3 text-lg">{data.short_description}</p>
+          <p className=" pt-5 pb-3 text-lg">{data.description}</p>
 
           <div className="space-y-2">
             <p>

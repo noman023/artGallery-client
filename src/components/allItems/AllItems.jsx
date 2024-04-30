@@ -1,21 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-import mountain from "../../assets/mountain_view_canvas.jpg";
 import Button from "../Button/Button";
 
 export default function AllItems() {
-  const data = {
-    image: "https://example.com/mountain_view_canvas.jpg",
-    item_name: "Mountain View Canvas",
-    subcategory_Name: "Landscape Painting",
-    short_description:
-      "Capture the beauty of mountains with this stunning canvas painting.",
-    price: 50.99,
-    rating: 4.5,
-    customization: "Yes",
-    processing_time: "1-2 weeks",
-    stockStatus: "In stock",
-  };
+  const data = useLoaderData();
 
   return (
     <>
@@ -32,19 +20,25 @@ export default function AllItems() {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <th>
-                <img src={mountain} alt="photo" className="w-52 h-28" />
-              </th>
-              <td>{data.item_name}</td>
-              <td>{data.price}</td>
-              <td>{data.stockStatus}</td>
-              <td>
-                <Link to={"/details/1"}>
-                  <Button>View Details</Button>
-                </Link>
-              </td>
-            </tr>
+            {data.map((obj) => (
+              <tr key={obj._id}>
+                <th>
+                  <img
+                    src={obj.itemImg}
+                    alt="photo"
+                    className="w-full h-28 object-cover"
+                  />
+                </th>
+                <td>{obj.itemName}</td>
+                <td>{obj.price}</td>
+                <td>{obj.stockStatus}</td>
+                <td>
+                  <Link to={`/details/${obj._id}`}>
+                    <Button>View Details</Button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

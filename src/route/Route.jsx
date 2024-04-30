@@ -34,6 +34,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/allItems",
+        loader: () => fetch("http://localhost:5000/items"),
         element: <AllItemsPage />,
       },
       {
