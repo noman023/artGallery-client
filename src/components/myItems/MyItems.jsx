@@ -17,7 +17,6 @@ export default function MyItems() {
       <Helmet>
         <title>Art Gallery | My Items</title>
       </Helmet>
-
       <SectionHead>Items you have added</SectionHead>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10">

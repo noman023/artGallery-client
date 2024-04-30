@@ -1,9 +1,28 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
 import Button from "../Button/Button";
 
 export default function MyCard({ data }) {
   const { itemImg, price, rating, customization, stockStatus, itemName, _id } =
     data;
+
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Do you want to delete?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          title: "deleted successfully",
+        });
+      }
+    });
+  };
 
   return (
     <div className="card card-compact max-w-96 bg-base-100 shadow-xl">
@@ -34,7 +53,12 @@ export default function MyCard({ data }) {
             <Button>Update</Button>
           </Link>
 
-          <Button styles={"bg-red-500 hover:bg-red-600"}>Detele</Button>
+          <Button
+            styles={"bg-red-500 hover:bg-red-600"}
+            hanldeClick={handleDelete}
+          >
+            Detele
+          </Button>
         </div>
       </div>
     </div>
