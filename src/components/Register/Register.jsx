@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -7,8 +7,14 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
 
+import { AuthContext } from "../../providers/AuthContext";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/firebase.config";
+
 export default function Register() {
   const [showPassowrd, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,22 +24,44 @@ export default function Register() {
     const photoURL = form.get("photoURL");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(name, photoURL, email, password);
 
-    if (
-      /[A-Z]/.test(password) &&
-      /[a-z]/.test(password) &&
-      password.length === 6
-    ) {
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Wrong Password Making ",
-        text: "Your password should include at least 1 uppercase and lowercase letter. And should be at least 6 character long.",
+    // if (
+    //   /[A-Z]/.test(password) &&
+    //   /[a-z]/.test(password) &&
+    //   password.length === 6
+    // ) {
+    // } else {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Wrong Password Making ",
+    //     text: "Your password should include at least 1 uppercase and lowercase letter. And should be at least 6 character long.",
+    //   });
+
+    //   return;
+    // }
+
+    createUser(email, password)
+      .then(() => {
+        {
+          Swal.fire({
+            icon: "success",
+            title: "You've been register successfully",
+          });
+        }
+
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoURL,
+        });
+
+        navigate("/");
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        });
       });
-
-      return;
-    }
   };
 
   const hanldeShowPassword = () => {

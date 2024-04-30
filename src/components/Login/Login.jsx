@@ -1,16 +1,42 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthContext";
+import Swal from "sweetalert2";
 
 export default function Login() {
+  const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // navigate after login
+  const navigateTo = () => {
+    navigate(location?.state ? location.state : "/");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+
+    logIn(email, password)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+
+        navigateTo();
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        });
+      });
   };
 
   return (

@@ -1,8 +1,29 @@
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import Button from "../Button/Button";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthContext";
+import Swal from "sweetalert2";
 
 export default function Header() {
+  const { user, logOut, loading } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() =>
+        Swal.fire({
+          icon: "success",
+          title: "LogOut successfully",
+        })
+      )
+      .catch((err) => {
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        });
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -67,24 +88,42 @@ export default function Header() {
 
         <div className="navbar-end">
           <div>
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="User name"
-              data-tooltip-place="bottom"
-            >
-              <div className="avatar">
-                <div className="w-16 rounded-full mr-5">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <span className="loading loading-spinner loading-lg "></span>
               </div>
-            </a>
+            ) : (
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                data-tooltip-place="bottom"
+              >
+                <div className="avatar">
+                  <div className="w-16 rounded-full mr-5">
+                    <img
+                      src={
+                        user?.photoURL
+                          ? `${user.photoURL}`
+                          : `https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg`
+                      }
+                    />
+                  </div>
+                </div>
+              </a>
+            )}
 
             <Tooltip id="my-tooltip" />
           </div>
 
-          <Link to={"/login"}>
-            <Button>Login</Button>
-          </Link>
+          {user ? (
+            <Link to={"/"}>
+              <Button hanldeClick={handleLogOut}>LogOut</Button>
+            </Link>
+          ) : (
+            <Link to={"/login"}>
+              <Button>Login</Button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
