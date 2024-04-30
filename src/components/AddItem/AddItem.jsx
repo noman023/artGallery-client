@@ -104,13 +104,22 @@ export default function AddItem() {
                 <label className="label">
                   <span className="label-text">Category</span>
                 </label>
-                <input
+
+                <select
                   name="category"
-                  type="text"
-                  placeholder="ex:- Landscape Painting, Portrait Drawing, Oil Painting, Cartoon Drawing"
-                  className="input input-bordered"
+                  className="select select-bordered"
                   required
-                />
+                >
+                  <option value="">Select a category</option>
+                  <option value="Landscape Painting">Landscape Painting</option>
+                  <option value="Portrait Drawing">Portrait Drawing</option>
+                  <option value="Watercolour Painting">
+                    Watercolour Painting
+                  </option>
+                  <option value="Oil Painting">Oil Painting</option>
+                  <option value="Charcoal Sketching">Charcoal Sketching</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
+                </select>
               </div>
 
               <div className="form-control">
