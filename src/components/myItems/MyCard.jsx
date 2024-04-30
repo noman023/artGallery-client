@@ -16,10 +16,21 @@ export default function MyCard({ data }) {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire({
-          icon: "success",
-          title: "deleted successfully",
-        });
+        fetch(`https://art-crafts-server-xi.vercel.app/items/${_id}`, {
+          method: "DELETE",
+        })
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "deleted successfully",
+            });
+          })
+          .catch((err) =>
+            Swal.fire({
+              icon: "warning",
+              title: err.message,
+            })
+          );
       }
     });
   };
