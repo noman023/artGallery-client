@@ -5,12 +5,14 @@ import Footer from "../components/Footer/Footer";
 export default function Root() {
   return (
     <>
-      <div className="container mx-auto px-3">
-        <Header />
-        <Outlet />
-      </div>
+      <div className="flex flex-col min-h-screen">
+        <div className="container mx-auto px-3 flex-grow">
+          <Header />
+          <Outlet />
+        </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }
