@@ -196,7 +196,7 @@ export default function AddItem() {
                 <input
                   name="stockStatus"
                   type="text"
-                  placeholder="ex:- In stock, Out of stock"
+                  placeholder="ex:- In stock, Made to Order"
                   className="input input-bordered"
                   required
                 />

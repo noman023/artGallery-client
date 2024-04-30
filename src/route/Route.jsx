@@ -47,6 +47,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/myItems",
+        loader: () => fetch("http://localhost:5000/items"),
         element: (
           <PrivateRoute>
             <MyItems />
@@ -54,7 +55,7 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/updateItem",
+        path: "/updateItem/:id",
         element: (
           <PrivateRoute>
             <UpdateItem />

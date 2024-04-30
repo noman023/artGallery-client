@@ -1,8 +1,36 @@
 import { Helmet } from "react-helmet";
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function UpdateItem() {
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const {
+    itemImg,
+    itemName,
+    category,
+    description,
+    price,
+    rating,
+    customization,
+    processing_time,
+    stockStatus,
+    userName,
+    userEmail,
+  } = data;
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/items/${id}`)
+      .then((res) => res.json())
+
+      .then((data) => setData(data));
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -18,10 +46,10 @@ export default function UpdateItem() {
     const customization = form.get("customization");
     const processing_time = form.get("processing_time");
     const stockStatus = form.get("stockStatus");
-    const name = form.get("name");
-    const email = form.get("email");
+    const name = form.get("userName");
+    const email = form.get("userEmail");
 
-    console.log(
+    const item = {
       itemImg,
       itemName,
       category,
@@ -32,8 +60,30 @@ export default function UpdateItem() {
       processing_time,
       stockStatus,
       name,
-      email
-    );
+      email,
+    };
+
+    fetch(`http://localhost:5000/items/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Your Item updated successfully",
+        });
+
+        navigate("/");
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        })
+      );
   };
 
   return (
@@ -53,11 +103,11 @@ export default function UpdateItem() {
                   <span className="label-text">Item Image URL</span>
                 </label>
                 <input
+                  defaultValue={itemImg}
                   name="itemImg"
                   type="text"
                   placeholder="Item image url"
                   className="input input-bordered"
-                  required
                 />
               </div>
 
@@ -66,6 +116,7 @@ export default function UpdateItem() {
                   <span className="label-text">Item Name</span>
                 </label>
                 <input
+                  defaultValue={itemName}
                   name="itemName"
                   type="text"
                   placeholder="Item Name"
@@ -78,13 +129,22 @@ export default function UpdateItem() {
                 <label className="label">
                   <span className="label-text">Category</span>
                 </label>
-                <input
+                <select
                   name="category"
-                  type="text"
-                  placeholder="ex:- Landscape Painting, Portrait Drawing, Oil Painting, Cartoon Drawing"
-                  className="input input-bordered"
+                  className="select select-bordered"
+                  defaultValue={category}
                   required
-                />
+                >
+                  <option value="">Select a category</option>
+                  <option value="Landscape Painting">Landscape Painting</option>
+                  <option value="Portrait Drawing">Portrait Drawing</option>
+                  <option value="Watercolour Painting">
+                    Watercolour Painting
+                  </option>
+                  <option value="Oil Painting">Oil Painting</option>
+                  <option value="Charcoal Sketching">Charcoal Sketching</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
+                </select>
               </div>
 
               <div className="form-control">
@@ -92,6 +152,7 @@ export default function UpdateItem() {
                   <span className="label-text">Short Description</span>
                 </label>
                 <input
+                  defaultValue={description}
                   name="description"
                   type="text"
                   placeholder="Short Description"
@@ -105,6 +166,7 @@ export default function UpdateItem() {
                   <span className="label-text">Price</span>
                 </label>
                 <input
+                  defaultValue={price}
                   name="price"
                   type="text"
                   placeholder="price"
@@ -118,6 +180,7 @@ export default function UpdateItem() {
                   <span className="label-text">Rating</span>
                 </label>
                 <input
+                  defaultValue={rating}
                   name="rating"
                   type="text"
                   placeholder="rating"
@@ -133,6 +196,7 @@ export default function UpdateItem() {
                   <span className="label-text">Customization</span>
                 </label>
                 <input
+                  defaultValue={customization}
                   name="customization"
                   type="text"
                   placeholder="ex:- yes, no"
@@ -146,6 +210,7 @@ export default function UpdateItem() {
                   <span className="label-text">Processing Time</span>
                 </label>
                 <input
+                  defaultValue={processing_time}
                   name="processing_time"
                   type="text"
                   placeholder="ex: 15min, 1 hr"
@@ -159,9 +224,10 @@ export default function UpdateItem() {
                   <span className="label-text">Stock Status</span>
                 </label>
                 <input
+                  defaultValue={stockStatus}
                   name="stockStatus"
                   type="text"
-                  placeholder="ex:- In stock, Out of stock"
+                  placeholder="ex:- In stock, Made to Orde"
                   className="input input-bordered"
                   required
                 />
@@ -172,7 +238,8 @@ export default function UpdateItem() {
                   <span className="label-text">User Name</span>
                 </label>
                 <input
-                  name="name"
+                  defaultValue={userName}
+                  name="userName"
                   type="text"
                   placeholder="User Name"
                   className="input input-bordered"
@@ -184,7 +251,8 @@ export default function UpdateItem() {
                   <span className="label-text">User Email</span>
                 </label>
                 <input
-                  name="email"
+                  defaultValue={userEmail}
+                  name="userEmail"
                   type="email"
                   placeholder="user email"
                   className="input input-bordered"
