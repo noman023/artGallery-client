@@ -2,8 +2,12 @@ import { Helmet } from "react-helmet";
 
 import Button from "../Button/Button";
 import SectionHead from "../SectionHead/SectionHead";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function AddItem() {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,7 +26,7 @@ export default function AddItem() {
     const name = form.get("name");
     const email = form.get("email");
 
-    console.log(
+    const item = {
       itemImg,
       itemName,
       category,
@@ -33,9 +37,32 @@ export default function AddItem() {
       processing_time,
       stockStatus,
       name,
-      email
-    );
+      email,
+    };
+
+    fetch("http://localhost:5000/items", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Your Item added successfully",
+        });
+
+        navigate("/");
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "warning",
+          title: err.message,
+        })
+      );
   };
+
   return (
     <>
       <Helmet>
@@ -57,7 +84,6 @@ export default function AddItem() {
                   type="text"
                   placeholder="Item image url"
                   className="input input-bordered"
-                  required
                 />
               </div>
 
