@@ -8,7 +8,7 @@ export default function ViewDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://art-crafts-server-xi.vercel.app//items/${id}`)
+    fetch(`https://art-crafts-server-xi.vercel.app/items/${id}`)
       .then((res) => res.json())
 
       .then((data) => setData(data));
@@ -20,7 +20,7 @@ export default function ViewDetails() {
         <title>Art Gallery | Details</title>
       </Helmet>
 
-      <div className="flex flex-col lg:flex-row bg-base-200 my-10 p-5 gap-5 rounded-lg">
+      <div className="flex flex-col lg:flex-row bg-gray-50 my-10 p-5 gap-5 rounded-lg">
         <div className="lg:w-[40%] border">
           <img src={data.itemImg} className="rounded-lg shadow-2xl" />
         </div>

@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
-import Button from "../Button/Button";
 import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthContext";
 import Swal from "sweetalert2";
+
+import { AuthContext } from "../../providers/AuthContext";
+import Button from "../Button/Button";
+
+import userPhoto from '../../assets/user.jpg'
 
 export default function Header() {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -46,7 +49,7 @@ export default function Header() {
 
   return (
     <nav className="mb-8">
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-white shadow">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +71,7 @@ export default function Header() {
             <ul
               tabIndex={0}
               id="navUl2"
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -104,7 +107,7 @@ export default function Header() {
                       src={
                         user?.photoURL
                           ? `${user.photoURL}`
-                          : `https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg`
+                          : userPhoto
                       }
                     />
                   </div>

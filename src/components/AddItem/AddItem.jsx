@@ -71,43 +71,43 @@ export default function AddItem() {
 
       <SectionHead>Add Craft Item</SectionHead>
 
-      <div className="card shrink-0 w-full shadow-2xl bg-base-100 mb-20">
+      <div className="card shrink-0 w-full shadow-2xl bg-white mb-20">
         <form onSubmit={handleSubmit} className="card-body ">
           <div className="lg:flex lg:justify-between lg:gap-5">
             <div className="w-full space-y-3">
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Item Image URL</span>
+                <label className="label ">
+                  <span className="label-text text-gray-600">Item Image URL</span>
                 </label>
                 <input
                   name="itemImg"
                   type="text"
                   placeholder="Item image url"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50 "
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Item Name</span>
+                  <span className="label-text text-gray-600">Item Name</span>
                 </label>
                 <input
                   name="itemName"
                   type="text"
                   placeholder="Item Name"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Category</span>
+                  <span className="label-text text-gray-600">Category</span>
                 </label>
 
                 <select
                   name="category"
-                  className="select select-bordered"
+                  className="select select-bordered bg-gray-50"
                   required
                 >
                   <option value="">Select a category</option>
@@ -124,39 +124,39 @@ export default function AddItem() {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Short Description</span>
+                  <span className="label-text text-gray-600">Short Description</span>
                 </label>
                 <input
                   name="description"
                   type="text"
                   placeholder="Short Description"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Price</span>
+                  <span className="label-text text-gray-600">Price</span>
                 </label>
                 <input
                   name="price"
                   type="text"
                   placeholder="price"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Rating</span>
+                  <span className="label-text text-gray-600">Rating</span>
                 </label>
                 <input
                   name="rating"
                   type="text"
                   placeholder="rating"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
@@ -165,64 +165,64 @@ export default function AddItem() {
             <div className="w-full space-y-3">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Customization</span>
+                  <span className="label-text text-gray-600">Customization</span>
                 </label>
                 <input
                   name="customization"
                   type="text"
                   placeholder="ex:- yes, no"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Processing Time</span>
+                  <span className="label-text text-gray-600">Processing Time</span>
                 </label>
                 <input
                   name="processing_time"
                   type="text"
                   placeholder="ex: 15min, 1 hr"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Stock Status</span>
+                  <span className="label-text text-gray-600">Stock Status</span>
                 </label>
                 <input
                   name="stockStatus"
                   type="text"
                   placeholder="ex:- In stock, Made to Order"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">User Name</span>
+                  <span className="label-text text-gray-600">User Name</span>
                 </label>
                 <input
                   name="name"
                   type="text"
                   placeholder="User Name"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">User Email</span>
+                  <span className="label-text text-gray-600">User Email</span>
                 </label>
                 <input
                   name="email"
                   type="email"
                   placeholder="user email"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-50"
                   required
                 />
               </div>

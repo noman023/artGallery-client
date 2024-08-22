@@ -1,17 +1,19 @@
 import Marquee from "react-fast-marquee";
 import SectionHead from "../SectionHead/SectionHead";
 
+import userPhoto from '../../assets/user.jpg'
+
 export default function Reviews() {
   return (
     <>
       <SectionHead>User Reviews</SectionHead>
 
       <div className="my-10">
-        <Marquee>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 mr-5">
+        <Marquee >
+          <div className="card card-compact w-96 bg-gray-50 shadow-xl p-2 mx-5">
             <div className="avatar mx-auto">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={userPhoto} />
               </div>
             </div>
 
@@ -26,10 +28,10 @@ export default function Reviews() {
             </div>
           </div>
 
-          <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 mr-5">
+          <div className="card card-compact w-96 bg-gray-50 shadow-xl p-2 mx-5">
             <div className="avatar mx-auto">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src={userPhoto} />
               </div>
             </div>
 
@@ -44,10 +46,10 @@ export default function Reviews() {
             </div>
           </div>
 
-          <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 mr-5">
+          <div className="card card-compact w-96 bg-gray-50 shadow-xl p-2 mx-5">
             <div className="avatar mx-auto">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src={userPhoto} />
               </div>
             </div>
 

@@ -7,10 +7,10 @@ export default function AllItems() {
 
   return (
     <>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mb-10">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="text-black text-sm">
             <tr>
               <th>Image</th>
               <th>Name</th>

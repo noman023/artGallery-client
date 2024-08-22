@@ -36,7 +36,7 @@ export default function MyCard({ data }) {
   };
 
   return (
-    <div className="card card-compact max-w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact max-w-96 bg-gray-50 shadow-xl">
       <figure>
         <img src={itemImg} alt="art item" className="w-full h-60" />
       </figure>
